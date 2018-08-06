@@ -1,18 +1,36 @@
 <mat-list>
-  <h3 mat-subheader *ngIf='MyFav.length'>Favorites Movies</h3>
-  <h3 mat-subheader *ngIf='!MyFav.length'>Favorites List is empty</h3>
+  <!-- <span *ngIf='MyFav.length'>Favorites Movies</span>
+  <span *ngIf='!MyFav.length'>Favorites List is empty</span>
+  <button mat-icon-button>
+    <mat-icon 
+      mat-list-icon 
+      color='warn'
+      (click)='removeMovieFromMyList(i)'>
+      delete
+    </mat-icon>
+  </button> -->
+<mat-toolbar>
+  <mat-toolbar-row fxLayout fxLayoutAlign="space-between center">
+    <span *ngIf='MyFav.length'>Favorites Movies</span>
+    <span *ngIf='!MyFav.length'>Favorites List is empty</span>
+    <mat-icon color="warn" (click)="removeAllMovies()">delete</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
   <mat-list-item *ngFor="let f of MyFav; let i = index">
-    <button mat-icon-button>
-      <mat-icon 
-        mat-list-icon 
-        color='warn'
-        (click)='removeMovieFromMyList(i)'>
-          delete
-      </mat-icon>
-    </button>
-    
-    <h4 mat-line>{{f.Title}}</h4>
-    <p mat-line> {{f.Released}}</p>
+    <div class="mat-list-item-wrap">
+      <a (click)="navigateToMoviePage(f.imdbID)">
+        <h4 mat-line>{{f.Title}}</h4>
+        <p mat-line> {{f.Released}}</p>
+      </a>
+      <button mat-icon-button>
+        <mat-icon 
+          mat-list-icon 
+          color='warn'
+          (click)='removeMovieFromMyList(i)'>
+            delete
+        </mat-icon>
+      </button>
+    </div>
     <mat-divider></mat-divider>
   </mat-list-item>
 </mat-list>

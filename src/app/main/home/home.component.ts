@@ -34,9 +34,7 @@ export class HomeComponent implements OnInit {
 
   addToMyFavorite() {
     const favorites: any = this.getMyFavorites();
-    let currrentMovie = favorites.find((p) => {
-      return p.imdbID === this.movie.imdbID;
-    })
+    let currrentMovie = favorites.find(p => p.imdbID === this.movie.imdbID)
     if (currrentMovie) {
       this.setMessageText('The movie has already been added to My Favorites');
     } else {
@@ -45,7 +43,6 @@ export class HomeComponent implements OnInit {
       window.localStorage.setItem('MyFavorites', JSON.stringify(favorites));
       return this.movie;
     }
-    
   }
 
   getMyFavorites() {

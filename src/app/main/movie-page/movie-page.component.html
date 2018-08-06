@@ -1,0 +1,82 @@
+<section>
+    <mat-card class="movie">
+        <mat-card-header>
+            <div mat-card-avatar></div>
+            <mat-card-title>{{ currentMovie.Title }} {{ currentMovie.Year }}</mat-card-title>
+            <mat-card-subtitle>{{ currentMovie.Plot }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src='{{currentMovie.Poster}}' alt="poster">
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item>Rating: {{ currentMovie.Rated }}
+                    <mat-divider></mat-divider> 
+                </mat-list-item>
+                <mat-list-item>Released: {{ currentMovie.Released }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Runtime: {{ currentMovie.Runtime }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Genre: {{ currentMovie.Genre }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Director: {{ currentMovie.Director }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Writer: {{ currentMovie.Writer }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Actors: {{ currentMovie.Actors }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Language: {{ currentMovie.Language }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Country: {{ currentMovie.Country }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Awards: {{ currentMovie.Awards }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Ratings: 
+                    <ul>
+                        <li *ngFor="let r of currentMovie.Ratings">
+                            <span>Source: {{r['Source']}}</span>, <span>Value: {{r['Value']}}</span>
+                        </li>
+                    </ul>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Metascore: {{ currentMovie.Metascore }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>imdbRating: {{ currentMovie.imdbRating }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>imdbVotes: {{ currentMovie.imdbVotes }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>imdbID: {{ currentMovie.imdbID }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Type: {{ currentMovie.Type }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>DVD: {{ currentMovie.DVD }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>BoxOffice: {{ currentMovie.BoxOffice }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Production: {{ currentMovie.Production }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Website: {{ currentMovie.Website }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Response: {{ currentMovie.Response }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</section>

@@ -1,0 +1,17 @@
+mat-icon {
+    cursor: pointer;
+}
+
+h4, p {
+     margin: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+.mat-list-item-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
