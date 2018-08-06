@@ -1,0 +1,18 @@
+<mat-list>
+  <h3 mat-subheader *ngIf='MyFav.length'>Favorites Movies</h3>
+  <h3 mat-subheader *ngIf='!MyFav.length'>Favorites List is empty</h3>
+  <mat-list-item *ngFor="let f of MyFav; let i = index">
+    <button mat-icon-button>
+      <mat-icon 
+        mat-list-icon 
+        color='warn'
+        (click)='removeMovieFromMyList(i)'>
+          delete
+      </mat-icon>
+    </button>
+    
+    <h4 mat-line>{{f.Title}}</h4>
+    <p mat-line> {{f.Released}}</p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

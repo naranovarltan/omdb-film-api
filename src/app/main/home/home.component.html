@@ -1,0 +1,108 @@
+<section class="form-search-movie">
+    <form
+        fxLayout
+        fxLayoutAlign="center"
+        #f="ngForm"
+        (ngSubmit)="onSubmit(f)">
+        <mat-form-field>
+            <input 
+                matInput
+                placeholder="Input the title of your movie"
+                type="text"
+                name="movieName"
+                ngModel>
+        </mat-form-field>
+        <button mat-button type="submit">
+            <mat-icon>search</mat-icon>
+        </button>
+    </form>
+</section>
+<section class="movie-data">
+    <mat-card *ngIf="messageText">{{messageText}}</mat-card>
+    <mat-card class="movie" *ngIf="movie">
+        <mat-card-header>
+            <div mat-card-avatar></div>
+            <mat-card-title>{{ movie.Title }} {{ movie.Year }}</mat-card-title>
+            <mat-card-actions>
+                <button mat-mini-fab (click)='addToMyFavorite()'>
+                    <mat-icon>star</mat-icon>
+                </button>
+            </mat-card-actions>
+            <mat-card-subtitle>{{ movie.Plot }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src='{{movie.Poster}}' alt="poster">
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item>Rating: {{ movie.Rated }}
+                    <mat-divider></mat-divider> 
+                </mat-list-item>
+                <mat-list-item>Released: {{ movie.Released }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Runtime: {{ movie.Runtime }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Genre: {{ movie.Genre }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Director: {{ movie.Director }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Writer: {{ movie.Writer }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Actors: {{ movie.Actors }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Language: {{ movie.Language }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Country: {{ movie.Country }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Awards: {{ movie.Awards }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Ratings: 
+                    <ul>
+                        <li *ngFor="let r of ratings">
+                            <span>Source: {{r['Source']}}</span>, <span>Value: {{r['Value']}}</span>
+                        </li>
+                    </ul>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Metascore: {{ movie.Metascore }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>imdbRating: {{ movie.imdbRating }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>imdbVotes: {{ movie.imdbVotes }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>imdbID: {{ movie.imdbID }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Type: {{ movie.Type }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>DVD: {{ movie.DVD }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>BoxOffice: {{ movie.BoxOffice }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Production: {{ movie.Production }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Website: {{ movie.Website }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item>Response: {{ movie.Response }}
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+
+</section>
