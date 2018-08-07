@@ -12,13 +12,15 @@ import { MylistComponent } from './main/mylist/mylist.component'
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { MovieService } from './shared/services/movies.service';
+import { MoviePageComponent } from './main/movie-page/movie-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MylistComponent,
-    HeaderComponent
+    HeaderComponent,
+    MoviePageComponent
   ],
   imports: [
     BrowserModule,

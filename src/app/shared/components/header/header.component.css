@@ -2,6 +2,11 @@ mat-toolbar {
     background-color: #4c4c4c;
 }
 
+mat-icon {
+    cursor: pointer;
+}
+
 .toolbar-link {
     color: #ffffff;
 }
+
