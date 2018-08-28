@@ -14,18 +14,20 @@ export class HomeComponent implements OnInit {
   public MyFavoritesMovies = [];
   public messageText: string = 'Выполнил Наранов А.А.';
 
-  constructor(private movieService: MovieService) { }
+  constructor(
+    private movieService: MovieService,
+  ) { }
 
   ngOnInit() {
   }
   
   onSubmit(form) {
-    this.setMessageText('The movie is found');
     this.movieService.searchFilm(form.value.movieName)
       .subscribe((data) => {
         if (data['Error']) {
           this.setMessageText(data['Error']);
         } else {
+          this.setMessageText('The movie is found');
           this.movie = data;
           this.ratings = data['Ratings'];
         }
@@ -33,7 +35,7 @@ export class HomeComponent implements OnInit {
   }
 
   addToMyFavorite() {
-    const favorites: any = this.getMyFavorites();
+    const favorites: any = this.movieService.getMyFavorites();
     let currrentMovie = favorites.find(p => p.imdbID === this.movie.imdbID)
     if (currrentMovie) {
       this.setMessageText('The movie has already been added to My Favorites');
@@ -43,10 +45,6 @@ export class HomeComponent implements OnInit {
       window.localStorage.setItem('MyFavorites', JSON.stringify(favorites));
       return this.movie;
     }
-  }
-
-  getMyFavorites() {
-    return this.MyFavoritesMovies = JSON.parse(window.localStorage.getItem('MyFavorites')) || [];
   }
 
   setMessageText(text: string) {

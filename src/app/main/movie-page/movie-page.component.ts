@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router'
+import { ActivatedRoute, Params } from '@angular/router';
+
+import { MovieService } from '../../shared/services/movies.service';
 
 @Component({
   selector: 'app-movie-page',
@@ -12,20 +14,18 @@ export class MoviePageComponent implements OnInit {
   public currentMovieId: any;
   public currentMovie: any;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private movieService: MovieService
+  ) { }
 
   ngOnInit() {
     this.route.queryParams
       .subscribe((params: Params) => {
         this.currentMovieId = params['id'];
       })
-      this.MyFavoritesMovies = this.getMyFavorites();
+      this.MyFavoritesMovies = this.movieService.getMyFavorites();
       this.currentMovie = this.MyFavoritesMovies.find(p => p.imdbID === this.currentMovieId);
-      console.log(this.currentMovie);
-  }
-
-  getMyFavorites() {
-    return this.MyFavoritesMovies = JSON.parse(window.localStorage.getItem('MyFavorites')) || [];
   }
 
 }
